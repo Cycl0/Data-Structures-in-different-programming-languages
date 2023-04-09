@@ -3,11 +3,9 @@ def print_all(stack):
     node = stack.head
     print("[", end='')
     # Iterate through and print
-    while node.next:
+    while node:
       print(node.value, end='')
-      node = node.next
-      if node:
+      if node.next:
         print(", ", end='')
-    # Print last node
-    print(node.value, end='')
+      node = node.next
     print("]")

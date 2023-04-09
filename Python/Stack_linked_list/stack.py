@@ -3,22 +3,6 @@ class Node:
     self.value = value
     self.next = None
 
-def get_last_node(head):
-    # Start at the head
-    node = head
-    # Iterate to the end of the list
-    while node.next:
-      node = node.next
-    return node
-
-def get_second_last_node(head):
-    # Start at the head
-    node = head
-    # Iterate to the second last element
-    while node.next.next:
-      node = node.next
-    return node
-
 class LinkedListStack:
   def __init__(self, head=None):
     self.head = head
@@ -26,22 +10,20 @@ class LinkedListStack:
   def push(self, value):
     # If list is not empty
     if self.head:
-      # Get last node
-      node = get_last_node(self.head)
-      # Create a new node with the value at the end of the list
-      node.next = Node(value)
+      new_node = Node(value)
+      # Reference to previous head
+      new_node.next = self.head
+      # Replace previous head
+      self.head = new_node
     else:
       # Create the first node if none
       self.head = Node(value)
 
   def pop(self):
     # If list is not empty
-    if self.head:
-      # Get second last node
-      node_sec_last = get_second_last_node(self.head)
-      # Get last node before deleting reference
-      node_last = node_sec_last.next
-      # Delete last node reference
-      node_sec_last.next = None
-      return node_last.value
+    if not self.head:
+      return None
+    popped = self.head.value
+    self.head = self.head.next
+    return popped
 
