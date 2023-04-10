@@ -19,6 +19,15 @@ void append(Array *a, short value) {
 	*(a->array + a->count++) = value;
 }
 
+short pop(Array *a) {
+	size_t lastIndex = a->count - 1;
+	// Saved before decrement
+	short popped = *(a->array + lastIndex);
+	// Decrease count
+	a->count--;
+	return popped;
+}
+
 void removeAtIndex(Array *a, unsigned short i) {
 	if(i >= a->count || a->count <= 0) {
 		// Return if not in range or array is empty

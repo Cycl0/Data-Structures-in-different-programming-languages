@@ -12,6 +12,7 @@ typedef struct {
 Array *Array_Init(size_t initialSize);
 
 void append(Array *a, short value);
+short pop(Array *a);
 void removeAtIndex(Array *a, unsigned short i);
 void insertAtIndex(Array *a, unsigned short i, short value);
 void freeArray(Array *a);
