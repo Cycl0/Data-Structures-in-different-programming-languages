@@ -11,8 +11,8 @@ int main(void) {
 	printAll(a);
     printf("Size: %d\n", a->size);
 
-	insertAtIndex(a, 9, 20);
-	insertAtIndex(a, 0, 10);
+	insertAtIndex(a, 20, 9);
+	insertAtIndex(a, 10, 0);
 	printf("Insert 20 at 9 and 10 at 0\n");
 	printAll(a);
 

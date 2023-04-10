@@ -42,7 +42,7 @@ void removeAtIndex(Array *a, unsigned short i) {
 	a->count--;
 }
 
-void insertAtIndex(Array *a, unsigned short i, short value) {
+void insertAtIndex(Array *a, short value, unsigned short i) {
 	if(i >= a->count || a->count <= 0) {
 		// Return if not in range or array is empty
 		return;
